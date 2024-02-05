@@ -9,7 +9,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Home = () => {
   return (
     <div>
-      <div className="w-[80%] m-auto h-[60vh] my-10">
+      <div className="w-[80%] m-auto h-[60vh] mt-[140px] shadow-2xl">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -25,13 +25,13 @@ const Home = () => {
           className="mySwiper rounded-xl"
         >
           <SwiperSlide>
-            <img src="src/assets/images/macbook.jpg" alt="" />
+            <img src="src/assets/images/te4.jpg" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src/assets/images/img2.webp" alt="" />
+            <img src="src/assets/images/te3.webp" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src/assets/images/img3.avif" alt="" />
+          <img src="src/assets/images/img5.webp" alt="" />
           </SwiperSlide>
           <SwiperSlide>
             <img src="src/assets/images/img5.webp" alt="" />
@@ -65,7 +65,6 @@ const Home = () => {
             <div className="w-[15%]">
               <img src="src/assets/images/phone.jpg" alt="" />
               <p>Смартфоны и планшеты</p>
-
             </div>
             <div className="w-[15%]">
               <img src="src/assets/images/phone.jpg" alt="" />
@@ -76,8 +75,8 @@ const Home = () => {
               <p>Бытовая техника</p>
             </div>
             <div className="w-[15%]">
-            <img src="src/assets/images/phone.jpg" alt="" />
-            <p>Кондиционеры</p>
+              <img src="src/assets/images/phone.jpg" alt="" />
+              <p>Кондиционеры</p>
             </div>
             <div className="w-[15%]">
               <img src="src/assets/images/phonehead.jpg" alt="" />

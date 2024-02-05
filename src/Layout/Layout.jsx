@@ -90,25 +90,24 @@ const Layout = () => {
     <>
       <div>
         {/* header */}
-        <header className="w-[100%] shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
-          <div className="md:flex items-center justify-between w-[80%] m-auto ">
+        <header className="w-[100%] top-0 fixed z-50 shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
+          <div className="md:flex flex-wrap items-center justify-between w-[80%] m-auto ">
             <div className="flex items-center">
               {/* Logo */}
               <img
-                src="/src/assets/images/logotip.jpg"
+                src="src/assets/images/Logotip(1).jpg"
                 alt=""
                 className="w-auto h-[14vh] mr-3"
               />
               
               {/* buttonCatalog */}
               <Button variant="contained">
-                <MenuIcon></MenuIcon>
+                <MenuIcon sx={{fontSize:"18px"}}></MenuIcon>
                 {/* forCatalog */}
-
                 {["top"].map((anchor) => (
                   <div key={anchor}>
                     <Button onClick={toggleDrawer(anchor, true)}>
-                      <p className="text-[white]">Каталог товаров</p>
+                      <p className="text-[white] ">Каталог</p>
                     </Button>
                     <Drawer
                       anchor={anchor}
@@ -123,7 +122,7 @@ const Layout = () => {
             </div>
 
             {/* Input for Search */}
-            <div className="mob:hidden sm:inline-flex">
+            <div className="mob:hidden md:inline-flex">
             <Paper
               component="form"
               sx={{
@@ -152,12 +151,12 @@ const Layout = () => {
             </div>
 
             {/* Location/Account/Shopping */}
-            <div className="flex justify-evenly w-[240px]">
+            <div className="flex justify-evenly md:w-[240px] ">
               <div className="flex flex-col  items-center">
                 <AddLocationAltIcon
                   onClick={handleClickOpen}
                 ></AddLocationAltIcon>
-                <p>Худжанд</p>
+                <p className="hover:text-[white] font-bold">Худжанд</p>
 
                 {/* ForMOdalLocation */}
 
@@ -222,8 +221,8 @@ const Layout = () => {
           <div className="w-[80%] m-auto md:flex justify-between">
             <div>
               <ul className="font-semibold">
-                <li className="py-2 hover:text-[#797933] hover:underline">Телефоны справочной службы</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">101</li>
+                <li className="py-2 hover:text-[#5d91da] hover:underline">Телефоны справочной службы</li>
+                <li className="py-2 hover:text-[#797933] hover:underline">000</li>
                 <li className="py-2 hover:text-[#797933] hover:underline">+432 08-888-1111</li>
                 <li className="py-2 hover:text-[#797933] hover:underline">@Mishop_tj</li>
               </ul>
