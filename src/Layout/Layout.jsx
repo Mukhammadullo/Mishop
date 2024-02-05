@@ -10,23 +10,65 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-const Layout = () => {
-  let { pathname } = useLocation();
+// forCatalog
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import { useState } from "react";
 
+const Layout = () => {
+  // forCatalog
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <Divider />
+      <div>
+        <Link to="/">
+          <li className="m-[50px]  text:pathname=='/' ? red:blue  ">Home</li>
+        </Link>
+
+        <Link to="/about">
+          <li>Смартфоны и планшеты</li>
+        </Link>
+      </div>
+    </Box>
+  );
+
+  let { pathname } = useLocation();
   return (
     <>
       <div>
         {/* header */}
         <header className="w-[100%] shadow-lg md:h-[14vh] md:flex justify-evenly items-center">
-          <div>
-          <Link to="/">
-            <li className="m-[50px]  text:pathname=='/' ? red:blue  ">Home</li>
-          </Link>
-
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          </div>
           {/* Logo */}
           <img
             src="/src/assets/images/logotip.jpg"
@@ -35,7 +77,23 @@ const Layout = () => {
           />
           {/* buttonCatalog */}
           <Button variant="contained">
-            <MenuIcon></MenuIcon>Каталог товаров
+            <MenuIcon></MenuIcon>
+            {/* forCatalog */}
+
+            {["top"].map((anchor) => (
+              <div key={anchor}>
+                <Button onClick={toggleDrawer(anchor, true)}>
+                  <p className="text-[white]">Каталог товаров</p>
+                </Button>
+                <Drawer
+                  anchor={anchor}
+                  open={state[anchor]}
+                  onClose={toggleDrawer(anchor, false)}
+                >
+                  {list(anchor)}
+                </Drawer>
+              </div>
+            ))}
           </Button>
           {/* Input for Search */}
           <Paper
@@ -77,7 +135,7 @@ const Layout = () => {
         </div>
 
         {/* Footer */}
-        <footer className="bg-[black] text-[white] flex justify-evenly">
+        <footer className="bg-[black] text-[white] md:flex justify-evenly">
           {/* Cards */}
           <div>
             <ul>
