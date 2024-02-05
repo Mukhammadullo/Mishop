@@ -90,8 +90,8 @@ const Layout = () => {
     <>
       <div>
         {/* header */}
-        <header className="w-[100%] top-0 fixed z-50 shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
-          <div className="md:flex flex-wrap items-center justify-between w-[80%] m-auto ">
+        <header className="w-[100%] top-0 fixed  z-50 shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
+          <div className="md:flex  items-center justify-between w-[80%] m-auto ">
             <div className="flex items-center">
               {/* Logo */}
               <img
@@ -152,11 +152,13 @@ const Layout = () => {
 
             {/* Location/Account/Shopping */}
             <div className="flex justify-evenly md:w-[240px] ">
-              <div className="flex flex-col  items-center">
+              <div  className="flex flex-col  items-center">
+                
                 <AddLocationAltIcon
                   onClick={handleClickOpen}
+                  sx={{fontSize:"28px"}}
                 ></AddLocationAltIcon>
-                <p className="hover:text-[white] font-bold">Худжанд</p>
+                <p className="hover:text-[white] font-bold">Dushanbe</p>
 
                 {/* ForMOdalLocation */}
 
@@ -199,11 +201,15 @@ const Layout = () => {
                 </BootstrapDialog>
               </div>
               <div className="flex flex-col  items-center">
-                <AccountCircleIcon></AccountCircleIcon>
+                <AccountCircleIcon
+                  sx={{fontSize:"28px"}}
+                ></AccountCircleIcon>
                 <p>Войти</p>
               </div>
               <div className="flex flex-col  items-center">
-                <ShoppingCartIcon></ShoppingCartIcon>
+                <ShoppingCartIcon
+                  sx={{fontSize:"28px"}}
+                ></ShoppingCartIcon>
                 <p>Корзина</p>
               </div>
             </div>
@@ -221,34 +227,39 @@ const Layout = () => {
           <div className="w-[80%] m-auto md:flex justify-between">
             <div>
               <ul className="font-semibold">
-                <li className="py-2 hover:text-[#5d91da] hover:underline">Телефоны справочной службы</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">000</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">+432 08-888-1111</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">@Mishop_tj</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Телефоны справочной службы</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">000</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">+432 08-888-1111</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">@Mishop_tj</li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#797933] hover:underline">Каталог товаров</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">Смартфоны</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">Телевизоры</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Каталог товаров</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Смартфоны</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Телевизоры</li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#797933] hover:underline">Стиральные машины</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">Кондиционеры</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Стиральные машины</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Кондиционеры</li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#797933] hover:underline">Мы в соцмедиа</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">FaceBook</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">Instagramm</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">Telegram</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Мы в соцмедиа</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">FaceBook</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Instagramm</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Telegram</li>
               </ul>
             </div>
+
+      
           </div>
+          <hr />
+<p>© 2024 ОАО  г. Душанбе, 101 мкр-н, ул. Багаутдинова, 9</p>
+      
         </footer>
       </div>
     </>

@@ -31,7 +31,7 @@ const Home = () => {
             <img src="src/assets/images/te3.webp" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-          <img src="src/assets/images/img5.webp" alt="" />
+            <img src="src/assets/images/img5.webp" alt="" />
           </SwiperSlide>
           <SwiperSlide>
             <img src="src/assets/images/img5.webp" alt="" />
@@ -96,6 +96,74 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Discounts */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Самые горячие скидки</p>
+        <p>Ihone </p>
+        <p>headphones</p>
+        <p>notbokes</p>
+        <p>book</p>
+        <p>in ther swiper</p>
+      </div>
+
+      {/* Phones */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/* sport */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/* sportFitnes Cards */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/* Обогреватели */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/*Игровые приставки */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/*Электрочайники и термопоты */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/*Стиральные машины */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Iphonese with swiper</p>
+      </div>
+      {/*Погрузитесь в кино */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Погрузитесь в кино</p>
+      </div>
+      {/*Аудио погружение
+       */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Аудио погружение</p>
+      </div>
+      {/*Умные гаджеты*/}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Умные гаджеты</p>
+      </div>
+      {/*Планшеты*/}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
+        <p>Планшеты</p>
+      </div>
+
     </div>
   );
 };
