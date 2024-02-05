@@ -5,8 +5,41 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../../styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import Button from "@mui/material/Button";
 
 const Home = () => {
+  // Slider2
+  const [swiperRef, setSwiperRef] = useState(null);
+
+  let appendNumber = 4;
+  let prependNumber = 1;
+
+  const prepend2 = () => {
+    swiperRef.prependSlide([
+      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+    ]);
+  };
+
+  const prepend = () => {
+    swiperRef.prependSlide(
+      '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
+    );
+  };
+
+  const append = () => {
+    swiperRef.appendSlide(
+      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
+    );
+  };
+
+  const append2 = () => {
+    swiperRef.appendSlide([
+      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+      '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+    ]);
+  };
+
   return (
     <div>
       <div className="w-[80%] m-auto h-[60vh] mt-[140px] shadow-2xl">
@@ -97,63 +130,480 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Discounts */}
-      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+      {/* Discounts_____________________________________________________________ */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px] mb-8 rounded-xl">
         <p className="text-[23px] font-bold">Самые горячие скидки</p>
-        <p>Ihone </p>
-        <p>headphones</p>
-        <p>notbokes</p>
-        <p>book</p>
-        <p>in ther swiper</p>
+
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
-      {/* Phones */}
-      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
+      {/* Phones__________________________________________________________________________ */}
+      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px] mb-8 rounded-xl">
         <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              iPhone 15 Pro Max 256 GB (nano-SIM+nano-SIM), черный
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test1.jpg" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
-      {/* sport */}
+
+      {/* Sport________________________________________________________________ */}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
+        <p className="text-[23px] font-bold">Спортивное питание</p>
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Протеин GeneticLab Nutrition Whey Pro 2100 г, клубника
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Протеин GeneticLab Nutrition Whey Pro 2100 г, клубника
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Протеин GeneticLab Nutrition Whey Pro 2100 г, клубника
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Протеин GeneticLab Nutrition Whey Pro 2100 г, клубника
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Протеин GeneticLab Nutrition Whey Pro 2100 г, клубника
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test2.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
-      {/* sportFitnes Cards */}
+
+      {/* sportFitnes Cards_______________________________________________________ */}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
+        <p className="text-[23px] font-bold">Абонементы в фитнес клубы</p>
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test3.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
-      {/* Обогреватели */}
+     
+      {/*Игровые приставки __________________________________________________________*/}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
+        <p className="text-[23px] font-bold">Игровые приставки</p>
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test4.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
-      {/*Игровые приставки */}
+    
+      {/*Стиральные машины___________________________________________________________________________*/}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
-      </div>
-      {/*Электрочайники и термопоты */}
-      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
-      </div>
-      {/*Стиральные машины */}
-      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Iphonese with swiper</p>
+        <p className="text-[23px] font-bold">Стиральные машины</p>
+        <Swiper
+          onSwiper={setSwiperRef}
+          slidesPerView={3}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            type: "fraction",
+          }}
+          navigation={true}
+          modules={[Pagination, Navigation]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+            Абонемент в фитнес клуб X-FIT на 1 год безлимитный для мужчин + 2 месяца заморозки в подарок
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="src/assets/images/test5.webp" alt="" />
+            <p className="bg-[red]">-39%</p>
+            <p>-39% 1 154 c. 1 900 с</p>
+            <p>
+              Телевизор Yasin-Smart32, 32дюйм.Телевизор Yasin-Smart32, 32дюйм.
+            </p>
+
+            <Button variant="contained">Contained</Button>
+          </SwiperSlide>
+        </Swiper>
       </div>
       {/*Погрузитесь в кино */}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
         <p className="text-[23px] font-bold">Без смартфона ни дня</p>
         <p>Погрузитесь в кино</p>
       </div>
-      {/*Аудио погружение
-       */}
-      <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
-        <p className="text-[23px] font-bold">Без смартфона ни дня</p>
-        <p>Аудио погружение</p>
-      </div>
-      {/*Умные гаджеты*/}
+       {/*Умные гаджеты*/}
       <div className="w-[80%] m-auto border-red-500 border-solid border-[2px]">
         <p className="text-[23px] font-bold">Без смартфона ни дня</p>
         <p>Умные гаджеты</p>
@@ -163,7 +613,6 @@ const Home = () => {
         <p className="text-[23px] font-bold">Без смартфона ни дня</p>
         <p>Планшеты</p>
       </div>
-
     </div>
   );
 };

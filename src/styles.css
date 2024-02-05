@@ -27,9 +27,9 @@ body {
   background: #fff;
 
   /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  justify-content:start;
+  align-items: end;
 }
 
 .swiper-slide img {
