@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="w-[80%] m-auto h-[60vh] mt-[140px] shadow-2xl rounded-xl">
+      <div className="md:w-[80%] mob:w-[95%] mob:mt-[180px] m-auto h-[60vh] mt-[140px] shadow-2xl rounded-xl">
         <Swiper
           spaceBetween={30}
           centeredSlides={true}
@@ -71,21 +71,21 @@ const Home = () => {
       </div>
 
       {/* Popular category */}
-      <div className="my-8 py-[2%] w-[80%] m-auto rounded-xl shadow-2xl">
+      <div className="my-8 py-[2%] md:w-[80%] mob:w-[95%] m-auto rounded-xl shadow-xl">
         <p className="text-[23px] ml-8 font-bold">Популярные категории</p>
         {/* cards */}
-        <div className=" w-[100%] py-8  ">
+        <div className=" w-[100%] py-8 ">
           {/* CardsRow1 */}
-          <div className="flex text-center justify-evenly py-3">
-            <div className="w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
+          <div className="md:flex text-center justify-evenly py-3">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/skidka.jpg"
-                className="rounded-full w-[160px] h-[160px]"
+                className="rounded-full md:w-[160px] md:h-[160px]"
                 alt=""
               />
               <p>Скидки</p>
             </div>
-            <div className="w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card1.jpg"
                 className="w-[160px] h-[160px] rounded-full"
@@ -93,7 +93,7 @@ const Home = () => {
               />
               <p>Смартфоны и планшеты</p>
             </div>
-            <div className="w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card2.png"
                 className="rounded-full w-[160px] h-[160px]"
@@ -101,7 +101,7 @@ const Home = () => {
               />
               <p>Спортивное питание</p>
             </div>
-            <div className="w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card3.jpg"
                 className="rounded-full w-[160px] h-[160px]"
@@ -109,7 +109,7 @@ const Home = () => {
               />
               <p>Телевизоры</p>
             </div>
-            <div className="w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card4.jpg"
                 className="rounded-full w-[160px] h-[160px]"
@@ -119,8 +119,8 @@ const Home = () => {
             </div>
           </div>
           {/* CarsRow2 */}
-          <div className="flex justify-evenly text-center  py-3">
-            <div className="w-[15%] ml-3">
+          <div className="md:flex justify-evenly text-center py-3">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card5.jpg"
                 alt=""
@@ -128,7 +128,7 @@ const Home = () => {
               />
               <p>Ноутбуки</p>
             </div>
-            <div className="w-[15%] ml-3">
+            <div className="md:w-[15%] flex flex-col items-center  hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card6.jpg"
                 alt=""
@@ -136,7 +136,7 @@ const Home = () => {
               />
               <p>Наушники</p>
             </div>
-            <div className="w-[15%] ml-3">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card7.jpg"
                 alt=""
@@ -144,7 +144,7 @@ const Home = () => {
               />
               <p>Книги</p>
             </div>
-            <div className="w-[15%] ml-3">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card8.jpg"
                 alt=""
@@ -152,7 +152,7 @@ const Home = () => {
               />
               <p>Строительство и ремонт</p>
             </div>
-            <div className="w-[15%] ml-3">
+            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
               <img
                 src="src/assets/images/card9.png"
                 alt=""
