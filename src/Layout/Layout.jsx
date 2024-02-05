@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
@@ -10,18 +10,23 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-
-
-
-const Layout=()=> {
-  
-let {pathname}=useLocation()
+const Layout = () => {
+  let { pathname } = useLocation();
 
   return (
     <>
       <div>
         {/* header */}
         <header className="w-[100%] shadow-lg md:h-[14vh] md:flex justify-evenly items-center">
+          <div>
+          <Link to="/">
+            <li className="m-[50px]  text:pathname=='/' ? red:blue  ">Home</li>
+          </Link>
+
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          </div>
           {/* Logo */}
           <img
             src="/src/assets/images/logotip.jpg"
@@ -107,6 +112,6 @@ let {pathname}=useLocation()
       </div>
     </>
   );
-}
+};
 
 export default Layout;
