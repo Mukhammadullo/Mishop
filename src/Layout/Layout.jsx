@@ -90,8 +90,8 @@ const Layout = () => {
     <>
       <div>
         {/* header */}
-        <header className="w-[100%] shadow-lg md:h-[14vh] md:flex  items-center">
-          <div className="flex items-center justify-between w-[80%] m-auto ">
+        <header className="w-[100%] shadow-lg md:h-[14vh]">
+          <div className="md:flex items-center justify-between w-[80%] m-auto ">
             <div className="flex items-center">
               {/* Logo */}
               <img
@@ -133,10 +133,10 @@ const Layout = () => {
             >
               <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
               <InputBase
-                sx={{ ml: 1, flex: 1 }}
+                sx={{ ml: 1, flex: 1}}
                 placeholder="Search ........"
-                inputProps={{ "aria-label": "search google maps" }}
-              />
+                 
+                />
               <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
                 <SearchIcon />
               </IconButton>
@@ -179,23 +179,15 @@ const Layout = () => {
                     <CloseIcon />
                   </IconButton>
                   <DialogContent dividers>
-                    <Typography gutterBottom>
-                      Cras mattis consectetur purus sit amet fermentum. Cras
-                      justo odio, dapibus ac facilisis in, egestas eget quam.
-                      Morbi leo risus, porta ac consectetur ac, vestibulum at
-                      eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur et. Vivamus sagittis lacus vel augue laoreet
-                      rutrum faucibus dolor auctor.
-                    </Typography>
-                    <Typography gutterBottom>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent
-                      commodo cursus magna, vel scelerisque nisl consectetur et.
-                      Donec sed odio dui. Donec ullamcorper nulla non metus
-                      auctor fringilla.
-                    </Typography>
+                 <div className="text-[40px] md:w-[450px] border-[2px]">
+                  <p className="text-[blue]">Душанбе</p>
+                  <p className="text-[blue]">Худжанд</p>
+                  <p className="text-[blue]">Вахдат</p>
+                  <p className="text-[blue]">Гиссар</p>
+                  <p className="text-[blue]">Куляб</p>
+                  <p className="text-[blue]">Исфара</p>
+                  <p className="text-[blue]">Истаравшан </p>
+                  </div>
                   </DialogContent>
                   <DialogActions>
                     <Button autoFocus onClick={handleClose}>
@@ -228,9 +220,9 @@ const Layout = () => {
             <div>
               <ul className="font-semibold">
                 <li className="py-2 hover:text-[#797933] hover:underline">Телефоны справочной службы</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">900</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">+992 48-888-1111</li>
-                <li className="py-2 hover:text-[#797933] hover:underline">@alifshop_tj</li>
+                <li className="py-2 hover:text-[#797933] hover:underline">101</li>
+                <li className="py-2 hover:text-[#797933] hover:underline">+432 08-888-1111</li>
+                <li className="py-2 hover:text-[#797933] hover:underline">@Mishop_tj</li>
               </ul>
             </div>
             <div>

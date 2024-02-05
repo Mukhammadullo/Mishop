@@ -27,12 +27,14 @@ const Home = () => {
         className="mySwiper rounded-xl"
       >
         <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="src/assets/images/img2.webp" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="src/assets/images/img3.avif" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="src/assets/images/img5.webp" alt="" /></SwiperSlide>
         <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="src/assets/images/img3.avif" alt="" /></SwiperSlide>
         <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="src/assets/images/iphone15-pro-64.webp" alt="" /></SwiperSlide>
+        <SwiperSlide><img src="src/assets/images/img5.webp" alt="" /></SwiperSlide>
+        
        
       </Swiper>
     </div>
