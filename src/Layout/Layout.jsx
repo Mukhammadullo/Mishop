@@ -90,7 +90,7 @@ const Layout = () => {
     <>
       <div>
         {/* header */}
-        <header className="w-[100%] shadow-lg md:h-[14vh]">
+        <header className="w-[100%] shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
           <div className="md:flex items-center justify-between w-[80%] m-auto ">
             <div className="flex items-center">
               {/* Logo */}
@@ -99,6 +99,7 @@ const Layout = () => {
                 alt=""
                 className="w-auto h-[14vh] mr-3"
               />
+              
               {/* buttonCatalog */}
               <Button variant="contained">
                 <MenuIcon></MenuIcon>
@@ -122,6 +123,7 @@ const Layout = () => {
             </div>
 
             {/* Input for Search */}
+            <div className="mob:hidden sm:inline-flex">
             <Paper
               component="form"
               sx={{
@@ -147,6 +149,7 @@ const Layout = () => {
                 aria-label="directions"
               ></IconButton>
             </Paper>
+            </div>
 
             {/* Location/Account/Shopping */}
             <div className="flex justify-evenly w-[240px]">
@@ -216,7 +219,7 @@ const Layout = () => {
         {/* Footer */}
         <footer className="bg-[black] text-[white] py-20">
           {/* Cards */}
-          <div className="w-[80%] m-auto flex justify-between">
+          <div className="w-[80%] m-auto md:flex justify-between">
             <div>
               <ul className="font-semibold">
                 <li className="py-2 hover:text-[#797933] hover:underline">Телефоны справочной службы</li>
