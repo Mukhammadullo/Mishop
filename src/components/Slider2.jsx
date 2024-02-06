@@ -30,28 +30,49 @@ const Slider2 = ({ title, suptitle, price, name }) => {
             alt=""
             className="rounded-xl"
           />
-          <div>
+          <div className="flex flex-col">
             <p className="text-[white] bg-[red] m-3 rounded-lg w-[20%]">{suptitle}</p>
             <p className="font-bold w-[20%] m-2">{price}</p>
-            <p>{name}</p>
-            <button className="md:w-[130px] md:h-[40px] text-[white] p-1 rounded-xl font-mono bg-[#3f84e4]">
+            <p className="font-mono text-start ml-4">{name}</p>
+            <button className="md:w-[130px] md:h-[40px] text-[white] md:p-1 m-3 rounded-xl font-mono bg-[#3f84e4]">
               В корзину
             </button>
           </div>
+        </SwiperSlide>
+       
+        <SwiperSlide className="rounded-xl">
+          <img
+            src="src/assets/images/test3.webp"
+            alt=""
+            className="rounded-xl"
+          />
+          <div className="flex flex-col">
+            <p className="text-[white] bg-[red] m-3 rounded-lg w-[20%]">{suptitle}</p>
+            <p className="font-bold w-[20%] m-2">{price}</p>
+            <p className="font-mono text-start ml-4">{name}</p>
+            <button className="md:w-[130px] md:h-[40px] text-[white] md:p-1 m-3 rounded-xl font-mono bg-[#3f84e4]">
+              В корзину
+            </button>
+          </div>
+        </SwiperSlide>
+       
+        <SwiperSlide className="rounded-xl">
+          <img
+            src="src/assets/images/test3.webp"
+            alt=""
+            className="rounded-xl"
+          />
+          <div className="flex flex-col">
+            <p className="text-[white] bg-[red] m-3 rounded-lg w-[20%]">{suptitle}</p>
+            <p className="font-bold w-[20%] m-2">{price}</p>
+            <p className="font-mono text-start ml-4">{name}</p>
+            <button className="md:w-[130px] md:h-[40px] text-[white] md:p-1 m-3 rounded-xl font-mono bg-[#3f84e4]">
+              В корзину
+            </button>
+          </div>
+        </SwiperSlide>
+       
 
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="src/assets/images/test3.webp" alt="" />
-          <button className="w-[130px] h-[50px] text-[white] rounded-xl font-mono bg-[#3f84e4]">
-            В корзину
-          </button>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="src/assets/images/test3.webp" alt="" />
-          <button className="w-[130px] h-[50px] text-[white] rounded-xl font-mono bg-[#3f84e4]">
-            В корзину
-          </button>
-        </SwiperSlide>
       </Swiper>
     </div>
   );
