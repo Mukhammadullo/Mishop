@@ -66,8 +66,13 @@ const Home = () => {
             <img src="src/assets/images/te3.webp" alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src/assets/images/img5.webp" alt="" />
+            <img src="src/assets/images/swiper2.webp" alt="" />
           </SwiperSlide>
+
+          <SwiperSlide>
+            <img src="src/assets/images/swiper3.jpg" alt="" />
+          </SwiperSlide>
+
         </Swiper>
       </div>
 
@@ -176,7 +181,6 @@ const Home = () => {
 
       {/* sportFitnes Cards_______________________________________________________ */}
       <Slider2 title={"Абонементы в фитнес клубы"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
-
 
       {/*Игровые приставки __________________________________________________________*/}
       <Slider2 title={"Игровые приставки"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>

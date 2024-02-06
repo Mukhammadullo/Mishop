@@ -25,6 +25,8 @@ import DialogActions from "@mui/material/DialogActions";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 
+import TextField from "@mui/material/TextField";
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -62,14 +64,39 @@ const Layout = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <Divider />
-      <div>
-        <Link to="/">
-          <li className="m-[50px]  text:pathname=='/' ? red:blue  ">Home</li>
-        </Link>
-
-        <Link to="/about">
-          <li>Смартфоны и планшеты</li>
-        </Link>
+      <div className="flex flex-col justify-center items-center">
+        <ul>
+          <Link to="/">
+            <li className="text:pathname=='/'? red:blue text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Home
+            </li>
+          </Link>
+          <Link to="/about">
+            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Смартфоны и планшеты
+            </li>
+          </Link>
+          <Link to="/about">
+            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Смартфоны и планшеты
+            </li>
+          </Link>
+          <Link to="/about">
+            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Смартфоны и планшеты
+            </li>
+          </Link>
+          <Link to="/about">
+            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Смартфоны и планшеты
+            </li>
+          </Link>
+          <Link to="/about">
+            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
+              Смартфоны и планшеты
+            </li>
+          </Link>
+        </ul>
       </div>
     </Box>
   );
@@ -86,6 +113,16 @@ const Layout = () => {
     setOpen(false);
   };
 
+  // ForModalAccount
+  const [open1, setOpen1] = useState(false);
+
+  const handleClickOpen1 = () => {
+    setOpen1(true);
+  };
+  const handleClose1 = () => {
+    setOpen1(false);
+  };
+
   return (
     <>
       <div>
@@ -95,14 +132,14 @@ const Layout = () => {
             <div className="flex items-center">
               {/* Logo */}
               <img
-                src="src/assets/images/Logotip(1).jpg"
+                src="src/assets/images/1.png"
                 alt=""
                 className="w-auto h-[14vh] mr-3"
               />
-              
+
               {/* buttonCatalog */}
               <Button variant="contained">
-                <MenuIcon sx={{fontSize:"18px"}}></MenuIcon>
+                <MenuIcon sx={{ fontSize: "18px" }}></MenuIcon>
                 {/* forCatalog */}
                 {["top"].map((anchor) => (
                   <div key={anchor}>
@@ -123,42 +160,44 @@ const Layout = () => {
 
             {/* Input for Search */}
             <div className="mob:hidden md:inline-flex">
-            <Paper
-              component="form"
-              sx={{
-                p: "2px 4px",
-                display: "flex",
-                alignItems: "center",
-                width: 400,
-              }}
-            >
-              <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
-              <InputBase
-                sx={{ ml: 1, flex: 1}}
-                placeholder="Search ........"
-                 
+              <Paper
+                component="form"
+                sx={{
+                  p: "2px 4px",
+                  display: "flex",
+                  alignItems: "center",
+                  width: 400,
+                }}
+              >
+                <IconButton sx={{ p: "10px" }} aria-label="menu"></IconButton>
+                <InputBase
+                  sx={{ ml: 1, flex: 1 }}
+                  placeholder="Search ........"
                 />
-              <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-                <SearchIcon />
-              </IconButton>
+                <IconButton
+                  type="button"
+                  sx={{ p: "10px" }}
+                  aria-label="search"
+                >
+                  <SearchIcon />
+                </IconButton>
 
-              <IconButton
-                color="primary"
-                sx={{ p: "10px" }}
-                aria-label="directions"
-              ></IconButton>
-            </Paper>
+                <IconButton
+                  color="primary"
+                  sx={{ p: "10px" }}
+                  aria-label="directions"
+                ></IconButton>
+              </Paper>
             </div>
 
             {/* Location/Account/Shopping */}
-            <div className="flex justify-evenly md:w-[240px] ">
-              <div  className="flex flex-col  items-center">
-                
+            <div className="flex justify-evenly md:w-[240px]">
+              <div className="flex flex-col  items-center hover:text-[#67f2fa] hover:cursor-pointer">
                 <AddLocationAltIcon
                   onClick={handleClickOpen}
-                  sx={{fontSize:"28px"}}
+                  sx={{ fontSize: "28px" }}
                 ></AddLocationAltIcon>
-                <p className="hover:text-[white] font-bold">Dushanbe</p>
+                <p className="font-bold">Dushanbe</p>
 
                 {/* ForMOdalLocation */}
 
@@ -168,7 +207,7 @@ const Layout = () => {
                   open={open}
                 >
                   <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                    Выберите ваш город
+                    <p className="font-mono">Выберите ваш город</p>
                   </DialogTitle>
                   <IconButton
                     aria-label="close"
@@ -183,15 +222,29 @@ const Layout = () => {
                     <CloseIcon />
                   </IconButton>
                   <DialogContent dividers>
-                 <div className="text-[40px] md:w-[450px] border-[2px]">
-                  <p className="text-[blue]">Душанбе</p>
-                  <p className="text-[blue]">Худжанд</p>
-                  <p className="text-[blue]">Вахдат</p>
-                  <p className="text-[blue]">Гиссар</p>
-                  <p className="text-[blue]">Куляб</p>
-                  <p className="text-[blue]">Исфара</p>
-                  <p className="text-[blue]">Истаравшан </p>
-                  </div>
+                    <div className="text-[20px] md:w-[450px]">
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Душанбе
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Худжанд
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Вахдат
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Гиссар
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Куляб
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Исфара
+                      </p>
+                      <p className="text-[#3f84e4] my-2 rounded-lg p-2 cursor-pointer hover:bg-[#d2d2d2]">
+                        Истаравшан{" "}
+                      </p>
+                    </div>
                   </DialogContent>
                   <DialogActions>
                     <Button autoFocus onClick={handleClose}>
@@ -200,18 +253,71 @@ const Layout = () => {
                   </DialogActions>
                 </BootstrapDialog>
               </div>
-              <div className="flex flex-col  items-center">
+
+              {/*Войти_______________________________________________________________ */}
+              <div
+                className="flex flex-col  items-center hover:text-[#67f2fa]"
+                onClick={handleClickOpen1}
+
+>
                 <AccountCircleIcon
-                  sx={{fontSize:"28px"}}
+                  sx={{ fontSize: "28px" }}
                 ></AccountCircleIcon>
-                <p>Войти</p>
+                <p className="font-bold">Войти</p>
               </div>
-              <div className="flex flex-col  items-center">
-                <ShoppingCartIcon
-                  sx={{fontSize:"28px"}}
-                ></ShoppingCartIcon>
-                <p>Корзина</p>
+
+
+              <div>
+                <BootstrapDialog
+                  onClose={handleClose1}
+                  aria-labelledby="customized-dialog-title"
+                  open={open1}
+                >
+                  <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+                    Вход
+                  </DialogTitle>
+                  <IconButton
+                    aria-label="close"
+                    onClick={handleClose1}
+                    sx={{
+                      position: "absolute",
+                      right: 8,
+                      top: 8,
+                      color: (theme) => theme.palette.grey[500],
+                    }}
+                  >
+                    <CloseIcon />
+                  </IconButton>
+
+                  <p className="text-[16px] font-bold text-center m-3">
+                    Введите номер телефона
+                  </p>
+                  <p className="text-[14px] text-[grey] m-4">
+                    Мы отправим вам СМС с кодом подтверждения
+                  </p>
+                  <div className="flex justify-center">
+                    <TextField
+                      id="outlined-basic"
+                      label="Phone"
+                      variant="outlined"
+                      placeholder="+992- - - - - -"
+                    />
+                  </div>
+                  <DialogActions>
+                    <Button autoFocus onClick={handleClose1}>
+                      Save changes
+                    </Button>
+                  </DialogActions>
+                </BootstrapDialog>
               </div>
+
+              <Link to="/Basket">
+              <div className="flex flex-col  hover:cursor-pointer hover:text-[#67f2fa] items-center">
+                <ShoppingCartIcon sx={{ fontSize: "28px" }}></ShoppingCartIcon>
+                <p className="font-bold">Корзина</p>
+              </div>
+              </Link>
+                    
             </div>
           </div>
         </header>
@@ -227,39 +333,64 @@ const Layout = () => {
           <div className="w-[80%] m-auto md:flex justify-between">
             <div>
               <ul className="font-semibold">
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Телефоны справочной службы</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">000</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">+432 08-888-1111</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">@Mishop_tj</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Телефоны справочной службы
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  000
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  +432 08-888-1111
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  @Mishop_tj
+                </li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Каталог товаров</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Смартфоны</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Телевизоры</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Каталог товаров
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Смартфоны
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Телевизоры
+                </li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Стиральные машины</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Кондиционеры</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Стиральные машины
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Кондиционеры
+                </li>
               </ul>
             </div>
             <div>
               <ul>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Мы в соцмедиа</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">FaceBook</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Instagramm</li>
-                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">Telegram</li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Мы в соцмедиа
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  FaceBook
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Instagramm
+                </li>
+                <li className="py-2 hover:text-[#5d91da] cursor-pointer hover:underline">
+                  Telegram
+                </li>
               </ul>
             </div>
-
-      
           </div>
-          <hr />
-<p>© 2024 ОАО  г. Душанбе, 101 мкр-н, ул. Багаутдинова, 9</p>
-      
+          <hr className="w-[80%] m-auto my-4" />
+          <p className="text-center m-4 text-[grey]">
+            © 2024 ОАО г. Душанбе, 101 мкр-н, ул. Багаутдинова, 9
+          </p>
         </footer>
       </div>
     </>
