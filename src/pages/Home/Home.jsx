@@ -66,7 +66,7 @@ const Home = () => {
         <p className="text-[23px] ml-8 font-bold">Популярные категории</p>
         {/* cards */}
         <div className=" w-[100%] py-8 ">
-          <div className="md:flex flex-wrap mx-[40px] text-center justify-evenly py-3">
+          <div className="flex flex-wrap mx-[40px] text-center justify-evenly py-3">
             {/* categoryGet */}
                {category.map((e) => {
                 if (e.categoryImage != null && e.categoryImage != "") {

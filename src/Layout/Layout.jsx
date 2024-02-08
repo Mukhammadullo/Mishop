@@ -14,7 +14,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // ForDialogMOdal
 import { styled } from "@mui/material/styles";
@@ -24,8 +24,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-
 import TextField from "@mui/material/TextField";
+// import Slider2 from "../../components/Slider2";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategory } from "../api/Home/home";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -37,6 +39,13 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const Layout = () => {
+  const dispatch = useDispatch();
+  const category = useSelector((store) => store.Home.categories);
+
+  useEffect(() => {
+    dispatch(getCategory());
+  }, [dispatch]);
+
   // forCatalog
   const [state, setState] = useState({
     top: false,
@@ -58,45 +67,24 @@ const Layout = () => {
 
   const list = (anchor) => (
     <Box
+    
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      
     >
       <Divider />
-      <div className="flex flex-col justify-center items-center">
-        <ul>
-          <Link to="/">
-            <li className="text:pathname=='/'? red:blue text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Home
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Смартфоны и планшеты
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Смартфоны и планшеты
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Смартфоны и планшеты
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Смартфоны и планшеты
-            </li>
-          </Link>
-          <Link to="/about">
-            <li className="text-center rounded-[2px] font-mono text-[20px] w-[100%] m-3 hover:bg-[#b2b2b2]">
-              Смартфоны и планшеты
-            </li>
-          </Link>
-        </ul>
+      <div className="m-3 overflow-y-auto w-[450px] h-[90vh]">
+       <button className="text-[black] font-bold border-black border-solid border-[2px] w-[100px] h-[40px] hover:bg-[black] hover:text-[white] rounded-lg">Close</button>
+        <p className="font-bold my-4 p-3 hover:bg-[black] hover:text-[white] rounded-lg">Главный</p>
+        {category.map((e) => {
+          return (
+            <div className="">
+              <h1 className="my-4 p-3  font-bold hover:bg-[black] hover:text-[white] rounded-lg">{e.categoryName}</h1>
+            </div>
+          )
+        })}
       </div>
     </Box>
   );
@@ -134,7 +122,7 @@ const Layout = () => {
               <img
                 src="src/assets/images/1.png"
                 alt=""
-                className="w-auto h-[14vh] mr-3"
+                className="w-auto h-[14vh] mr-3 rounded-full"
               />
 
               {/* buttonCatalog */}
@@ -258,14 +246,12 @@ const Layout = () => {
               <div
                 className="flex flex-col  items-center hover:text-[#67f2fa]"
                 onClick={handleClickOpen1}
-
->
+              >
                 <AccountCircleIcon
                   sx={{ fontSize: "28px" }}
                 ></AccountCircleIcon>
                 <p className="font-bold">Войти</p>
               </div>
-
 
               <div>
                 <BootstrapDialog
@@ -312,12 +298,13 @@ const Layout = () => {
               </div>
 
               <Link to="/Basket">
-              <div className="flex flex-col  hover:cursor-pointer hover:text-[#67f2fa] items-center">
-                <ShoppingCartIcon sx={{ fontSize: "28px" }}></ShoppingCartIcon>
-                <p className="font-bold">Корзина</p>
-              </div>
+                <div className="flex flex-col  hover:cursor-pointer hover:text-[#67f2fa] items-center">
+                  <ShoppingCartIcon
+                    sx={{ fontSize: "28px" }}
+                  ></ShoppingCartIcon>
+                  <p className="font-bold">Корзина</p>
+                </div>
               </Link>
-                    
             </div>
           </div>
         </header>
