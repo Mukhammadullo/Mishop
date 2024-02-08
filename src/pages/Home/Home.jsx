@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Button from "@mui/material/Button";
 import Slider2 from "../../components/Slider2";
 import { useDispatch, useSelector } from "react-redux";
+import { dark } from "@mui/material/styles/createPalette";
 
 
 const Home = () => {
@@ -104,76 +105,25 @@ const Home = () => {
       </div>
 
       {/*Discounts_Slider2______________________________________________________*/}
-      <Slider2
+      {/* <Slider2
         title={"Самые горячие скидки"}
         suptitle={"-39%"}
         price={"1150 $."}
         name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
+      ></Slider2> */}
 
-      {/* Phones__________________________________________________________________________ */}
-      <Slider2
-        title={"Смартфоны и планшеты"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
 
-      {/* Sport________________________________________________________________ */}
-      <Slider2
-        title={"Спортивное питание"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
+<div className="w-[80%] py-8 my-8 shadow-lg m-auto rounded-[8px]">
+  <div className="flex justify-between">
+  {products.products?.map((e)=>{
+    return (
+      <div>{e.productName}</div>
+    )
+  })}
+  </div>
 
-      {/* sportFitnes Cards_______________________________________________________ */}
-      <Slider2
-        title={"Абонементы в фитнес клубы"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
+</div>
 
-      {/*Игровые приставки __________________________________________________________*/}
-      <Slider2
-        title={"Игровые приставки"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
-
-      {/*Стиральные машины___________________________________________________________________________*/}
-      <Slider2
-        title={"Стиральные машины"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
-
-      {/*Погрузитесь в кино___________________________________________________________*/}
-      <Slider2
-        title={"Погрузитесь в кино"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
-
-      {/*Умные гаджеты___________________________________________________________*/}
-      <Slider2
-        title={"Умные гаджеты"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
-
-      {/*Планшеты_______________________________________________________________*/}
-      <Slider2
-        title={"Планшеты"}
-        suptitle={"-39%"}
-        price={"1150 $."}
-        name={"Телевизор Yasin-Smart32, 32дюйм."}
-      ></Slider2>
     </div>
   );
 };
