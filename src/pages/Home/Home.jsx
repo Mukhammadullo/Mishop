@@ -1,4 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { getCategory } from "../../api/Home/home";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -7,6 +9,7 @@ import "../../styles.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Button from "@mui/material/Button";
 import Slider2 from "../../components/Slider2";
+import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
   // Slider2
@@ -15,31 +18,14 @@ const Home = () => {
   let appendNumber = 4;
   let prependNumber = 1;
 
-  // const prepend2 = () => {
-  //   swiperRef.prependSlide([
-  //     '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-  //     '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
-  //   ]);
-  // };
 
-  // const prepend = () => {
-  //   swiperRef.prependSlide(
-  //     '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
-  //   );
-  // };
+  
+  const dispatch = useDispatch();
+  const category = useSelector((store) => store.Home.categories);
 
-  // const append = () => {
-  //   swiperRef.appendSlide(
-  //     '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
-  //   );
-  // };
-
-  // const append2 = () => {
-  //   swiperRef.appendSlide([
-  //     '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-  //     '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
-  //   ]);
-  // };
+  useEffect(() => {
+    dispatch(getCategory());
+  }, [dispatch]);
 
   return (
     <div>
@@ -72,7 +58,6 @@ const Home = () => {
           <SwiperSlide>
             <img src="src/assets/images/swiper3.jpg" alt="" />
           </SwiperSlide>
-
         </Swiper>
       </div>
 
@@ -81,123 +66,106 @@ const Home = () => {
         <p className="text-[23px] ml-8 font-bold">Популярные категории</p>
         {/* cards */}
         <div className=" w-[100%] py-8 ">
-          {/* CardsRow1 */}
-          <div className="md:flex text-center justify-evenly py-3">
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/skidka.jpg"
-                className="rounded-full md:w-[160px] md:h-[160px]"
-                alt=""
-              />
-              <p>Скидки</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card1.jpg"
-                className="w-[160px] h-[160px] rounded-full"
-                alt=""
-              />
-              <p>Смартфоны и планшеты</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card2.png"
-                className="rounded-full w-[160px] h-[160px]"
-                alt=""
-              />
-              <p>Спортивное питание</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card3.jpg"
-                className="rounded-full w-[160px] h-[160px]"
-                alt=""
-              />
-              <p>Телевизоры</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card4.jpg"
-                className="rounded-full w-[160px] h-[160px]"
-                alt=""
-              />
-              <p>Бытовая техника</p>
-            </div>
-          </div>
-          {/* CarsRow2 */}
-          <div className="md:flex justify-evenly text-center py-3">
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card5.jpg"
-                alt=""
-                className="rounded-full w-[160px] h-[160px]"
-              />
-              <p>Ноутбуки</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center  hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card6.jpg"
-                alt=""
-                className="rounded-full w-[160px] h-[160px]"
-              />
-              <p>Наушники</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card7.jpg"
-                alt=""
-                className="rounded-full w-[160px] h-[160px]"
-              />
-              <p>Книги</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card8.jpg"
-                alt=""
-                className="rounded-full w-[160px] h-[160px]"
-              />
-              <p>Строительство и ремонт</p>
-            </div>
-            <div className="md:w-[15%] flex flex-col items-center hover:text-[#5d91da] font-bold">
-              <img
-                src="src/assets/images/card9.png"
-                alt=""
-                className="rounded-full w-[160px] h-[160px]"
-              />
-              <p>Абонементы в фитнес-клубы</p>
-            </div>
+          <div className="md:flex flex-wrap mx-[40px] text-center justify-evenly py-3">
+            {/* categoryGet */}
+               {category.map((e) => {
+                if (e.categoryImage != null && e.categoryImage != "") {
+                  return (
+                    <>
+                      <di
+                        v
+                        key={e.id}
+                        className="flex flex-col items-center w-[150px] gap-[10px] hover:text-[#5392c9] font-bold "
+                      >
+                        <div className="bg-[#d0e4dc55] w-[150px] overflow-hidden flex items-center justify-center h-[150px] rounded-[50%]">
+                          <img
+                            src={`${import.meta.env.VITE_APP_FILES_URL}${
+                              e.categoryImage
+                            }`}
+                          />
+                        </div>
+                        <h1 className="text-center">{e.categoryName}</h1>
+                      </di>
+                    </>
+                  );
+                }
+              })}
+            
           </div>
         </div>
       </div>
 
       {/*Discounts_Slider2______________________________________________________*/}
-      <Slider2 title={"Самые горячие скидки"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Самые горячие скидки"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/* Phones__________________________________________________________________________ */}
-      <Slider2 title={"Смартфоны и планшеты"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Смартфоны и планшеты"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/* Sport________________________________________________________________ */}
-      <Slider2 title={"Спортивное питание"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Спортивное питание"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/* sportFitnes Cards_______________________________________________________ */}
-      <Slider2 title={"Абонементы в фитнес клубы"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Абонементы в фитнес клубы"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/*Игровые приставки __________________________________________________________*/}
-      <Slider2 title={"Игровые приставки"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Игровые приставки"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/*Стиральные машины___________________________________________________________________________*/}
-      <Slider2 title={"Стиральные машины"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Стиральные машины"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/*Погрузитесь в кино___________________________________________________________*/}
-      <Slider2 title={"Погрузитесь в кино"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Погрузитесь в кино"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/*Умные гаджеты___________________________________________________________*/}
-      <Slider2 title={"Умные гаджеты"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
+      <Slider2
+        title={"Умные гаджеты"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
 
       {/*Планшеты_______________________________________________________________*/}
-      <Slider2 title={"Планшеты"} suptitle={"-39%"} price={"1150 $."} name={"Телевизор Yasin-Smart32, 32дюйм."}></Slider2>
-
-
+      <Slider2
+        title={"Планшеты"}
+        suptitle={"-39%"}
+        price={"1150 $."}
+        name={"Телевизор Yasin-Smart32, 32дюйм."}
+      ></Slider2>
     </div>
   );
 };

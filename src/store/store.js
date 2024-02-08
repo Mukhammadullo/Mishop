@@ -1,14 +1,9 @@
-import Layout from "../Layout/Layout";
-import Basket from "../pages/Basket/Basket";
-import Home from "../pages/Home/Home";
 import { configureStore } from "@reduxjs/toolkit";
+import Home from "../reducers/Home/Home";
 
+export const store = configureStore({
+  reducer: {
+    Home,
+  },
+});
 
-
-export const store=configureStore({
-    reducer:{
-        Layout,
-        Home,
-        Basket
-    }
-})
