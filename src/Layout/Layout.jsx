@@ -28,6 +28,8 @@ import TextField from "@mui/material/TextField";
 // import Slider2 from "../../components/Slider2";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "../api/Home/home";
+import { SubData } from "../reducers/Home/Home";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -45,6 +47,9 @@ const Layout = () => {
   useEffect(() => {
     dispatch(getCategory());
   }, [dispatch]);
+
+
+const subData=useSelector((store)=>store.Home.subData)  
 
   // forCatalog
   const [state, setState] = useState({
@@ -75,17 +80,33 @@ const Layout = () => {
       
     >
       <Divider />
-      <div className="m-3 overflow-y-auto w-[450px] h-[90vh]">
+      <div className="flex">
+      <div className="m-3 overflow-y-auto w-[450px] h-[80vh]">
        <button className="text-[black] font-bold border-black border-solid border-[2px] w-[100px] h-[40px] hover:bg-[black] hover:text-[white] rounded-lg">Close</button>
+        <Link to='/'>
         <p className="font-bold my-4 p-3 hover:bg-[black] hover:text-[white] rounded-lg">Главный</p>
+        </Link>
         {category.map((e) => {
           return (
-            <div className="">
+            <div   onMouseEnter={()=>dispatch(SubData(e.subCategories))}>
               <h1 className="my-4 p-3  font-bold hover:bg-[black] hover:text-[white] rounded-lg">{e.categoryName}</h1>
             </div>
           )
         })}
       </div>
+      {/* SubCategory_Fix */}
+      <div className="flex justify-center items-center w-[80%]">
+      <div className="flex flex-wrap justify-center items-center font-bold font-mono w-[80%] h-[60vh] border-red border-solid border-[2px] rounded-lg shadow-md">
+            {subData.map((e) => {
+              return (
+                <h1 key={e.id} className="hover:text-[white] p-3 rounded-[7px] text-[18px] hover:bg-[black]">
+                  {e.subCategoryName}
+                </h1>
+                             );
+            })}
+          </div>
+          </div>
+          </div>
     </Box>
   );
 
@@ -115,7 +136,7 @@ const Layout = () => {
     <>
       <div>
         {/* header */}
-        <header className="w-[100%] top-0 fixed  z-50 shadow-lg md:h-[14vh] bg-gradient-to-r from-indigo-500  via-purple-500 to-pink-500">
+        <header className="w-[100%] top-0 fixed  z-50 shadow-lg md:h-[14vh]    bg-[white]">
           <div className="md:flex  items-center justify-between w-[80%] m-auto ">
             <div className="flex items-center">
               {/* Logo */}
@@ -126,14 +147,15 @@ const Layout = () => {
               />
 
               {/* buttonCatalog */}
-              <Button variant="contained">
+              {/* <Button variant="contained"> */}
+              <div className="w-[120px] h-[40px] border-solid flex justify-evenly items-center border-[black] border-[1px] rounded-lg hover:bg-[black] hover:text-[white]">
                 <MenuIcon sx={{ fontSize: "18px" }}></MenuIcon>
                 {/* forCatalog */}
                 {["top"].map((anchor) => (
                   <div key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>
-                      <p className="text-[white] ">Каталог</p>
-                    </Button>
+                    <button onClick={toggleDrawer(anchor, true)}>
+                      <p className=" font-bold font-mono hover:text-[white]">Каталог</p>
+                    </button>
                     <Drawer
                       anchor={anchor}
                       open={state[anchor]}
@@ -143,7 +165,8 @@ const Layout = () => {
                     </Drawer>
                   </div>
                 ))}
-              </Button>
+              {/* </Button> */}
+                </div>
             </div>
 
             {/* Input for Search */}

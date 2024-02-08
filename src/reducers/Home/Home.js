@@ -6,10 +6,16 @@ const Home = createSlice({
     initialState: {
         loading: false,
         categories: [],
-        products:[]
-       
+        products:[],
+        subData: [],
+        
     },
-    reducers: {},
+    reducers: {
+        SubData: (state, value) => {
+            state.subData = value.payload;
+          },
+        
+    },
 
     extraReducers: (builder) => {
 
@@ -43,5 +49,5 @@ const Home = createSlice({
 })
 
 export default Home.reducer;
-export const { } = Home.actions;
+export const { SubData} = Home.actions;
 
