@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCategory} from "../../api/Home/home";
+import { getCategory, getProducts} from "../../api/Home/home";
 
 const Home = createSlice({
     name: "Home",
     initialState: {
         loading: false,
         categories: [],
+        products:[]
        
     },
     reducers: {},
@@ -22,6 +23,19 @@ const Home = createSlice({
             state.categories = action.payload;
         });
         builder.addCase(getCategory.rejected, (state, action) => {
+            state.loading = false;
+        });
+
+        //get
+        builder.addCase(getProducts.pending, (state, action) => {
+            state.loading = true;
+        });
+        builder.addCase(getProducts.fulfilled, (state, action) => {
+            // console.log(action.payload);
+            state.loading = false;
+            state.products = action.payload;
+        });
+        builder.addCase(getProducts.rejected, (state, action) => {
             state.loading = false;
         });
 

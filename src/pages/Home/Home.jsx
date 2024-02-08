@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getCategory } from "../../api/Home/home";
+import { getCategory, getProducts } from "../../api/Home/home";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,6 +10,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Button from "@mui/material/Button";
 import Slider2 from "../../components/Slider2";
 import { useDispatch, useSelector } from "react-redux";
+
 
 const Home = () => {
   // Slider2
@@ -22,9 +23,12 @@ const Home = () => {
   
   const dispatch = useDispatch();
   const category = useSelector((store) => store.Home.categories);
+  const products = useSelector((store) => store.Home.products);
+ 
 
   useEffect(() => {
     dispatch(getCategory());
+    dispatch(getProducts())  
   }, [dispatch]);
 
   return (
@@ -60,6 +64,10 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </div>
+
+<div>
+
+</div>
 
       {/* Popular category */}
       <div className="my-8 py-[2%] md:w-[80%] mob:w-[95%] m-auto rounded-xl shadow-xl">
