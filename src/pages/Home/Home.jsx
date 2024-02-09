@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getCategory, getProducts } from "../../api/Home/home";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,7 +9,12 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Button from "@mui/material/Button";
 import Slider2 from "../../components/Slider2";
 import { useDispatch, useSelector } from "react-redux";
-import { dark } from "@mui/material/styles/createPalette";
+// import { dark } from "@mui/material/styles/createPalette";
+
+import { addCart,getCategory,getProductById, getProducts } from "../../api/Home/home";
+
+
+
 
 const Home = () => {
   // Slider2
@@ -113,8 +117,8 @@ const Home = () => {
                     <p className="text-[grey] font-mono text-[16px] line-through">{e.discountPrice}</p>
                   </div>
                   <p className="font-bold font-mono">{e.productName}</p>
-                  <button className="w-[120px] py-2 border-[1px]  font-bold font-mono  hover:bg-[black] hover:text-[white] border-solid rounded-[8px] border-[black] border-[2px]">
-                    В корзину{" "}
+                  <button className="w-[120px] py-2 border-[1px]  font-bold font-mono  hover:bg-[black] hover:text-[white] border-solid rounded-[8px] border-[black] border-[2px]"   onClick={() => dispatch(addCart(e.id))}>
+                    В корзину
                   </button>
                 </div>
               </div>

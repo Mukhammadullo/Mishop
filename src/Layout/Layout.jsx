@@ -8,7 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 // forCatalog
 import Box from "@mui/material/Box";
@@ -30,6 +30,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategory } from "../api/Home/home";
 import { SubData } from "../reducers/Home/Home";
 
+// forRegister
+import { axiosRequest } from "../utils/axiosRequest";
+import { saveToken } from "../utils/token";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -41,6 +44,29 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
 }));
 
 const Layout = () => {
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let newUser = {
+      userName: e.target["name"].value,
+      password: e.target["password"].value,
+    };
+
+    try {
+      const { data } = await axiosRequest.post("Account/login", newUser, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(data);
+      saveToken(data.data);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const dispatch = useDispatch();
   const category = useSelector((store) => store.Home.categories);
 
@@ -48,8 +74,7 @@ const Layout = () => {
     dispatch(getCategory());
   }, [dispatch]);
 
-
-const subData=useSelector((store)=>store.Home.subData)  
+  const subData = useSelector((store) => store.Home.subData);
 
   // forCatalog
   const [state, setState] = useState({
@@ -72,41 +97,48 @@ const subData=useSelector((store)=>store.Home.subData)
 
   const list = (anchor) => (
     <Box
-    
       sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-      
     >
       <Divider />
       <div className="flex">
-      <div className="m-3 overflow-y-auto w-[450px] h-[80vh]">
-       <button className="text-[black] font-bold border-black border-solid border-[2px] w-[100px] h-[40px] hover:bg-[black] hover:text-[white] rounded-lg">Close</button>
-        <Link to='/'>
-        <p className="font-bold my-4 p-3 hover:bg-[black] hover:text-[white] rounded-lg">Главный</p>
-        </Link>
-        {category.map((e) => {
-          return (
-            <div   onMouseEnter={()=>dispatch(SubData(e.subCategories))}>
-              <h1 className="my-4 p-3  font-bold hover:bg-[black] hover:text-[white] rounded-lg">{e.categoryName}</h1>
-            </div>
-          )
-        })}
-      </div>
-      {/* SubCategory_Fix */}
-      <div className="flex justify-center items-center w-[80%]">
-      <div className="flex flex-wrap justify-center items-center font-bold font-mono w-[80%] h-[60vh] border-red border-solid border-[2px] rounded-lg shadow-md">
+        <div className="m-3 overflow-y-auto w-[450px] h-[80vh]">
+          <button className="text-[black] font-bold border-black border-solid border-[2px] w-[100px] h-[40px] hover:bg-[black] hover:text-[white] rounded-lg">
+            Close
+          </button>
+          <Link to="/">
+            <p className="font-bold my-4 p-3 hover:bg-[black] hover:text-[white] rounded-lg">
+              Главный
+            </p>
+          </Link>
+          {category.map((e) => {
+            return (
+              <div onMouseEnter={() => dispatch(SubData(e.subCategories))}>
+                <h1 className="my-4 p-3  font-bold hover:bg-[black] hover:text-[white] rounded-lg">
+                  {e.categoryName}
+                </h1>
+              </div>
+            );
+          })}
+        </div>
+        {/* SubCategory_Fix */}
+        <div className="flex justify-center items-center w-[80%]">
+          <div className="flex flex-wrap justify-center items-center font-bold font-mono w-[80%] h-[60vh] border-red border-solid border-[2px] rounded-lg shadow-md">
             {subData.map((e) => {
               return (
-                <h1 key={e.id} className="hover:text-[white] p-3 rounded-[7px] text-[18px] hover:bg-[black]">
+                <h1
+                  key={e.id}
+                  className="hover:text-[white] p-3 rounded-[7px] text-[18px] hover:bg-[black]"
+                >
                   {e.subCategoryName}
                 </h1>
-                             );
+              );
             })}
           </div>
-          </div>
-          </div>
+        </div>
+      </div>
     </Box>
   );
 
@@ -132,6 +164,8 @@ const subData=useSelector((store)=>store.Home.subData)
     setOpen1(false);
   };
 
+  const cart = useSelector((store) => store.Home.cart);
+
   return (
     <>
       <div>
@@ -154,7 +188,9 @@ const subData=useSelector((store)=>store.Home.subData)
                 {["top"].map((anchor) => (
                   <div key={anchor}>
                     <button onClick={toggleDrawer(anchor, true)}>
-                      <p className=" font-bold font-mono hover:text-[white]">Каталог</p>
+                      <p className=" font-bold font-mono hover:text-[white]">
+                        Каталог
+                      </p>
                     </button>
                     <Drawer
                       anchor={anchor}
@@ -165,8 +201,8 @@ const subData=useSelector((store)=>store.Home.subData)
                     </Drawer>
                   </div>
                 ))}
-              {/* </Button> */}
-                </div>
+                {/* </Button> */}
+              </div>
             </div>
 
             {/* Input for Search */}
@@ -304,28 +340,47 @@ const subData=useSelector((store)=>store.Home.subData)
                   <p className="text-[14px] text-[grey] m-4">
                     Мы отправим вам СМС с кодом подтверждения
                   </p>
-                  <div className="flex justify-center">
-                    <TextField
-                      id="outlined-basic"
-                      label="Phone"
-                      variant="outlined"
-                      placeholder="+992- - - - - -"
-                    />
-                  </div>
-                  <DialogActions>
-                    <Button autoFocus onClick={handleClose1}>
-                      Save changes
-                    </Button>
-                  </DialogActions>
+                  <form action="" onSubmit={handleSubmit}>
+                    <div className="flex justify-center">
+                      <TextField
+                        id="name"
+                        label="Name*"
+                        variant="outlined"
+                        type="text"
+                      />
+                      <TextField
+                        id="password"
+                        label="Password*"
+                        variant="outlined"
+                        type="password"
+                      />
+                    </div>
+                    <DialogActions>
+                      <Button autoFocus type="submit" onClick={handleClose1}>
+                        Save changes
+                      </Button>
+                    </DialogActions>
+                  </form>
                 </BootstrapDialog>
               </div>
 
               <Link to="/Basket">
                 <div className="flex flex-col  hover:cursor-pointer hover:text-[#67f2fa] items-center">
-                  <ShoppingCartIcon
-                    sx={{ fontSize: "28px" }}
-                  ></ShoppingCartIcon>
-                  <p className="font-bold">Корзина</p>
+                  <div>
+                    <ShoppingCartIcon
+                      sx={{ fontSize: "28px" }}
+                    ></ShoppingCartIcon>
+                    <p className="font-bold">Корзина</p>
+                  </div>
+                  <button
+                    className={
+                      cart?.length > 0
+                        ? `bg-[red] rounded-[50%] mt-[-6px] p-[5px] text-white ml-[-21px] w-[15px] h-[15px] flex items-center justify-center text-[12px]`
+                        : `hidden`
+                    }
+                  >
+                    {cart?.length}
+                  </button>
                 </div>
               </Link>
             </div>
@@ -333,7 +388,7 @@ const subData=useSelector((store)=>store.Home.subData)
         </header>
 
         {/* OutLink */}
-        <div>
+        <div className="py-[10px]">
           <Outlet></Outlet>
         </div>
 
