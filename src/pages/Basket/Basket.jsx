@@ -14,7 +14,7 @@ const Basket = () => {
 
     
   return (
-        <div className='px-[200px] flex flex-col gap-[50px]'>
+        <div className='px-[200px] flex my-10 flex-col gap-[50px]'>
                 {cart?.length > 0 ? (
                     <>
                         <button className='bg-[#48a067] w-[100px] rounded-[5px] text-white py-[5px]' onClick={() => {
@@ -59,13 +59,13 @@ const Basket = () => {
                                 <img src="src/assets/img/steel-shopping-trolley-90-liters-for-supermarkets.jpg" className="w-[200px]" />
                                 <h1 className='font-[700] text-[32px]'>Внутри пока нет товаров</h1>
                                 <p>Перейти в раздел с товарами, чтобы оставить заявку</p>
-                                <Link to={'/catalogtvr'}>
+                                <Link to={'/'}>
                                     <Button
-                                        onClick={() => setOpenModal(true)}
+                                        onClick={() => setOpenModal(true) }
                                         sx={{
-                                            background: '#48a067', borderRadius: '10px', color: '#fff', display: "flex", gap: "5px", paddingY: '15px', fontSize: '16px', paddingX: '30px', textTransform: "none",
+                                            background: 'black', borderRadius: '10px', color: '#fff', display: "flex", gap: "5px", paddingY: '15px', fontSize: '16px', paddingX: '30px', textTransform: "none",
                                             "&:hover": {
-                                                backgroundColor: "#48a0678b",
+                                                backgroundColor: "black",
                                                 color: "white",
                                             },
                                         }}

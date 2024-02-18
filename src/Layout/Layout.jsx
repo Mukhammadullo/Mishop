@@ -341,23 +341,31 @@ const Layout = () => {
                     Мы отправим вам СМС с кодом подтверждения
                   </p>
                   <form action="" onSubmit={handleSubmit}>
-                    <div className="flex justify-center">
+                    <div>
+                      <div className="m-3">
                       <TextField
                         id="name"
-                        label="Name*"
+                        label="Name"
                         variant="outlined"
                         type="text"
+                        className="w-[100%]"
+                        required
                       />
+                      </div>
+                      <div className="m-3">
                       <TextField
                         id="password"
-                        label="Password*"
+                        label="Password"
                         variant="outlined"
                         type="password"
+                        className="w-[100%]"
+                        required
                       />
+                      </div>
                     </div>
                     <DialogActions>
-                      <Button autoFocus type="submit" onClick={handleClose1}>
-                        Save changes
+                      <Button autoFocus type="submit" onClick={handleClose1} sx={{border:'1px solid black' , color:'black'}}>
+                        Save
                       </Button>
                     </DialogActions>
                   </form>

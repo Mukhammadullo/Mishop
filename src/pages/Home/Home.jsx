@@ -103,7 +103,7 @@ const Home = () => {
 
 
       <div className="md:w-[80%] py-8 px-8 my-8 shadow-xl bg-[white] m-auto rounded-[8px]">
-        <div className="md:flex justify-between">
+        <div className="md:flex flex-wrap justify-between">
           {products.products?.map((e) => {
             return (
               <div className="md:w-[30%]">
