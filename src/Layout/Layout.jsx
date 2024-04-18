@@ -375,20 +375,23 @@ const Layout = () => {
               <Link to="/Basket">
                 <div className="flex flex-col  hover:cursor-pointer hover:text-[#67f2fa] items-center">
                   <div>
+                  
                     <ShoppingCartIcon
                       sx={{ fontSize: "28px" }}
                     ></ShoppingCartIcon>
                     <p className="font-bold">Корзина</p>
-                  </div>
-                  <button
+                  
+                    <button
                     className={
                       cart?.length > 0
-                        ? `bg-[red] rounded-[50%] mt-[-6px] p-[5px] text-white ml-[-21px] w-[15px] h-[15px] flex items-center justify-center text-[12px]`
+                        ? `bg-[red] rounded-[50%]   text-white ml-[20px] mt-[-60px] w-[15px] h-[15px] flex items-center justify-center text-[12px]`
                         : `hidden`
                     }
                   >
                     {cart?.length}
                   </button>
+                  </div>
+                  
                 </div>
               </Link>
             </div>
